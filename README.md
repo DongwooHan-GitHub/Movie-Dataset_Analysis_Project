@@ -38,3 +38,4 @@ src
 
 ## 👨‍👩‍👧‍👦 Team member
 *  **김민진** https://github.com/mjxxkxx
+*  **조유경** https://github.com/YugyeongJo
