@@ -11,7 +11,7 @@
 ```
 
 ## 🗄️ Dataset
-[👉 Kaggle "The Movies Dataset"](https://www.kaggle.com/datasets/rounakbanik/the-movies-dataset?select=keywords.csv)
+[👉 Kaggle "The Movies Dataset"](./icons/dataset-cover.jpg)
 
 ## 🔧 Stack
 
