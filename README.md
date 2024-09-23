@@ -6,11 +6,10 @@
 ![The Movies Dataset](./icons/dataset-cover.jpg)
 
 ## 📖 Description
-```markdown
 프로젝트는 Kaggle의 "The Movies Dataset"을 활용하여 팀원 각자가 설정한 분석 주제에 따라 다양한 인사이트를 도출하는 것을 목표로 하였습니다. 
 팀원들은 각자의 분석 결과를 바탕으로 서로 피드백을 주고받으며 데이터 분석 능력을 향상시키고, 영화 산업에 대한 다양한 통찰을 공유하였습니다. 
 이 과정에서 데이터 전처리, 탐색적 데이터 분석, 시각화, 모델링 등 다양한 분석 기법을 적용하여 영화 데이터에 숨겨진 패턴과 트렌드를 파악하였습니다.
-```
+
 
 ## 🗄️ Dataset
 👉 [Kaggle "The Movies Dataset"](https://www.kaggle.com/datasets/rounakbanik/the-movies-dataset?select=keywords.csv)
