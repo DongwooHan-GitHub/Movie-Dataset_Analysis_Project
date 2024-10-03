@@ -78,7 +78,7 @@ Movie-Dataset_Analysis_Project
 ## 📊 ERD
 ![ERD](./dummy_file/ERD.png)
 
-## 👨‍👩‍👧‍👦 Team member
+## 💡 Team Members' Analysis Results
 |이름|역할|분석주제|분석결과|Github|
 |--|--|--|--|--|
 |**김민진**|분석|제작사 중심 영화 흥행 요인 분석|[PPT](./presentation/SeSAC_Movie_data_anlaysis_MJ.pdf)|[Click!](https://github.com/mjxxkxx)|
