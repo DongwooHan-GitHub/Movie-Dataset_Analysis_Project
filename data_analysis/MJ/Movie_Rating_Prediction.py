@@ -4,21 +4,18 @@ import ast
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# File paths
 credits_path = '/content/drive/MyDrive/dataset_miniproject/credits.csv'
 keywords_path = '/content/drive/MyDrive/dataset_miniproject/keywords.csv'
 links_path = '/content/drive/MyDrive/dataset_miniproject/links.csv'
 movies_metadata_path = '/content/drive/MyDrive/dataset_miniproject/movies_metadata.csv'
 ratings_path = '/content/drive/MyDrive/dataset_miniproject/ratings.csv'
 
-# Data Loading
 movies_metadata_df = pd.read_csv(movies_metadata_path, low_memory=False)
 ratings_df = pd.read_csv(ratings_path)
 credits_df = pd.read_csv(credits_path)
 keywords_df = pd.read_csv(keywords_path)
 links_df = pd.read_csv(links_path)
 
-# Data Cleaning and Preparation
 movies_metadata_df['release_date'] = pd.to_datetime(movies_metadata_df['release_date'], errors='coerce')
 movies_metadata_df['release_year'] = movies_metadata_df['release_date'].dt.year
 movies_metadata_df['release_month'] = movies_metadata_df['release_date'].dt.month
@@ -26,7 +23,6 @@ movies_metadata_df['budget'] = pd.to_numeric(movies_metadata_df['budget'], error
 movies_metadata_df['revenue'] = pd.to_numeric(movies_metadata_df['revenue'], errors='coerce')
 movies_metadata_df['popularity'] = pd.to_numeric(movies_metadata_df['popularity'], errors='coerce')
 
-# Helper function to extract company names and genres
 def extract_company_names(x):
     if pd.isna(x) or isinstance(x, bool) or not isinstance(x, str):  # Check for NaN, boolean, and non-string types
         return []
@@ -47,7 +43,6 @@ def extract_genres(genre_list):
             return []
     return []
 
-# Applying the functions
 movies_metadata_df['genres_list'] = movies_metadata_df['genres'].apply(extract_genres)
 movies_metadata_df['company_list'] = movies_metadata_df['production_companies'].apply(extract_company_names)
 
@@ -117,42 +112,7 @@ def plot_company_performance_combined():
     fig.tight_layout()
     plt.show()
 
-# Main execution
 if __name__ == "__main__":
     #plot_company_revenue_and_budget()
     # plot_company_popularity_and_ratings()
     plot_company_performance_combined()
-
-
-from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LinearRegression
-from sklearn.metrics import mean_squared_error, r2_score
-
-features = ['budget', 'popularity', 'vote_average', 'release_year']
-X = movies_metadata_df[features]
-y = movies_metadata_df['revenue']
-
-X = X.dropna()
-y = y.loc[X.index]
-
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-
-model = LinearRegression()
-model.fit(X_train, y_train)
-
-y_pred = model.predict(X_test)
-
-mse = mean_squared_error(y_test, y_pred)
-r2 = r2_score(y_test, y_pred)
-
-print(f'Mean Squared Error: {mse}')
-print(f'R² Score: {r2}')
-
-plt.figure(figsize=(10, 6))
-plt.scatter(y_test, y_pred, alpha=0.7)
-plt.plot([y_test.min(), y_test.max()], [y_test.min(), y_test.max()], '--', color='red')
-plt.xlabel('Actual Revenue')
-plt.ylabel('Predicted Revenue')
-plt.title('Actual vs Predicted Revenue')
-plt.tight_layout()
-plt.show()
